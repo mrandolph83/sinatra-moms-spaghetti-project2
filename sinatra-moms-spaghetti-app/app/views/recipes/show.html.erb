@@ -1,14 +1,65 @@
+
 <h1><%= @recipe.title %>  </h1>
 <p> by <em> <%= @recipe.user.name %> </em> </p>
 <p> <%= @recipe.content %> </p>
 
 
+<h2>Submit your review below</h2>
+<form class="" action="/recipes/:id" method="post">
+
+<h4>How simple?</h4>
+<input type="hidden" name="user_id" value=<%=current_user.id%>>
+<input type="hidden" name="recipe_id" value=<%=params.values.join.to_i%>>
+<label for="simple_review">1</label>
+<input type="radio" name="simple_review" value=1>
+<label for="simple_review">2</label>
+<input type="radio" name="simple_review" value=2>
+<label for="simple_review">3</label>
+<input type="radio" name="simple_review" value=3 checked>
+<label for="simple_review">4</label>
+<input type="radio" name="simple_review" value=4>
+<label for="simple_review">5</label>
+<input type="radio" name="simple_review" value=5><br>
+
+<h4>How healthy?</h4>
+<label for="healthy_review">1</label>
+<input type="radio" name="healthy_review" value=1>
+<label for="healthy_review">2</label>
+<input type="radio" name="healthy_review" value=2>
+<label for="healthy_review">3</label>
+<input type="radio" name="healthy_review" value=3 checked>
+<label for="healthy_review">4</label>
+<input type="radio" name="healthy_review" value=4>
+<label for="healthy_review">5</label>
+<input type="radio" name="healthy_review" value=5><br>
+
+<h4>How tasty?</h4>
+<label for="tasty_review">1</label>
+<input type="radio" name="tasty_review" value=1>
+<label for="tasty_review">2</label>
+<input type="radio" name="tasty_review" value=2>
+<label for="tasty_review">3</label>
+<input type="radio" name="tasty_review" value=3 checked>
+<label for="tasty_review">4</label>
+<input type="radio" name="tasty_review" value=4>
+<label for="tasty_review">5</label>
+<input type="radio" name="tasty_review" value=5><br><br>
+
+<h4><label for="comments">Comments:</label></h4>
+<textarea name="comments" style="width:600px; height:150px; align: left;"> </textarea><br><br>
+
+<input type="submit" name="" value="Submit Review">
+
+<p> <%@recipe.reviews.each do |review| %>
+    <h4><%= review.user.username%></h4>
+    <em>simple: <%= review.simple_review%> healthy: <%= review.healthy_review%> tasty: <%= review.tasty_review%></em>  <br>
+    <%= review.comments%>  <br>
+    <% end %>
+</p>
 
 
-<% if @recipe.user == current_user %>
-<a href="/recipes/<%= @recipe.id %>/edit"> Edit Recipe </a>
-<br><br>
-<form class="" action="/recipes/<%= @recipe.id %>/delete" method="post">
-<input type="hidden" name="_method" value="DELETE">
-<input type="submit" name="" value="Delete Recipe">
-<% end %> 
+
+
+
+
+

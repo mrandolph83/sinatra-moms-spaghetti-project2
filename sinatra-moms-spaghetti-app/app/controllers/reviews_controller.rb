@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
 
   # GET: /reviews/new
   get "/reviews/new" do
+    binding.pry
     erb :"/reviews/new.html"
   end
 

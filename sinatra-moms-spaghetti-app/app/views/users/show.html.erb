@@ -6,3 +6,11 @@
 
 </p>
     
+
+<% if @recipe.user == current_user %>
+<a href="/recipes/<%= @recipe.id %>/edit"> Edit Recipe </a>
+<br><br>
+<form class="" action="/recipes/<%= @recipe.id %>/delete" method="post">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" name="" value="Delete Recipe">
+<% end %> 
