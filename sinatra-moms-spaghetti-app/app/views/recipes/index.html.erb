@@ -1,0 +1,8 @@
+<h1>REcipes! Add pics/grid?</h1>
+<p> <%@recipes.each do |recipe| %>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.title%> </a> - <%=recipe.user.name%><li>
+    <% end %>
+
+</p>
+
+
