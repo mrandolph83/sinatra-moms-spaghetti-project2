@@ -24,7 +24,8 @@ class RecipesController < ApplicationController
     if params[:content] != ""
       # create a new recipe. also create a new category class, maybe
       # gorup it with rating in a classify class
-      @recipe = Recipe.create(title: params[:title], content: params[:content], category: params[:category], user_id: current_user.id)
+      @recipe = Recipe.create(title: params[:title], content: params[:content], category: params[:category], 
+      pic_url: params[:pic_url], user_id: current_user.id)
 
       redirect "recipes/#{@recipe.id}"
       # Recirects destroy 
