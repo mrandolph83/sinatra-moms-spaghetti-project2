@@ -83,12 +83,22 @@ class RecipesController < ApplicationController
   end
 end
 
+get "/recipes/:id/destroy" do
+
+  @recipe = Recipe.find(params[:id])
+  # binding.pry
+  erb :"/recipes/destroy.html"
+end
+
+
   # DELETE: /recipes/5/delete
-  delete "/recipes/:id/delete" do
-     @recipe = Recipe.find(params[:id])
+  delete "/recipes/:id/destroy" do
+    @recipe = Recipe.find(params[:id])
+ 
+    "Hello world"
     if @recipe.user == current_user
       @recipe.destroy
-      redirect "/recipes"
+      redirect "/users/#{current_user.id}"
     else
       redirect "/recipes"
     end
