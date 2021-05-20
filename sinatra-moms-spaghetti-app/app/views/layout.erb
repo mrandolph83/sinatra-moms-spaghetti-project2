@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/flexbox.css" />
   </head>
   <body>
 
@@ -20,6 +21,7 @@
     <a href="/logout">Logout</a>
     <a href="/recipes">Recipes</a>
     <a href="/recipes/new">Post a Recipe</a>
+    <a href="/users/<%=current_user.id%>">My Recipes</a>
     <% end %>
     </div>
 
@@ -29,8 +31,20 @@
   <% if flash[:errors] %>
   <h4 style="color: red;"> <%= flash[:errors] %> </h4>
   <% end %>
-
+ 
     <div class="wrapper">
+    <div class="main-logo"><em>Mom's Spaghetti</em></div>
+    <div class="top-nav">
+  
+      <div class="item setWidth">1</div>
+      <div class="item setWidth">2</div>
+      <div class="item setWidth">3</div>
+      <div class="item setWidth">4</div>
+      <div class="item setWidth">5</div>
+    </div>
+ 
+    
+  
 
         <%= yield %>
 

@@ -46,7 +46,7 @@ class RecipesController < ApplicationController
     @review = Review.create(simple_review: params[:simple_review], 
     healthy_review: params[:healthy_review], comments: params[:comments], tasty_review: params[:tasty_review], 
     user_id: params[:user_id], recipe_id: params[:recipe_id])
-     redirect "/recipes"
+     redirect "/users/#{@review.user_id}"
    end
 
   # GET: Edit Recipe to edit.erb, so you can render an edit form with patch
@@ -72,7 +72,8 @@ class RecipesController < ApplicationController
   # Find the recipe
   # Update the recipe
   # REdirect to show page
-    @recipe.update(title: params[:title], content: params[:content], category: params[:category], simple_review: params[:simple_review])
+    @recipe.update(title: params[:title], content: params[:content], category: params[:category], 
+    pic_url: params[:pic_url], user_id: current_user.id)
     redirect "/recipes/#{@recipe.id}"
       else 
         redirect "users/#{current_user.id}"

@@ -1,13 +1,12 @@
 <h1>Welcome <%= @user.name %>  </h1>
 <h2>My Recipes: </h2>
 <p> <%@user.recipes.each do |recipe| %>
-    <img src=<%= recipe.pic_url %> width="auto" height="100px"><br>
+    <img src=<%= recipe.pic_url %> width="auto" height="150px">
     <h3><a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></h3>
     <a href="/recipes/<%= recipe.id %>/edit">edit</a> 
-    <a href="/recipes/<%= recipe.id %>/destroy"> delete </a> <br>
+    <a href="/recipes/<%= recipe.id %>/destroy"> delete </a> <br><br>
     <% end %>
 </p>
     
 
-Add edit/delete functionality to the user for each recipe. Simple underlined a href's with the id number 
 

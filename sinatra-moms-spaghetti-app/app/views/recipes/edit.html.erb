@@ -1,32 +1,35 @@
 <h1>Edit your recipe below:</h1>
  
-
 <form class="" action="/recipes/<%= @recipe.id%>" method="post">
 <input type="hidden" name="_method" value="patch">
-<h3><label for="title">Recipe Title:</label></h3><br>
-<input type="text" name="title" value="<%= @recipe.title %>">
+
+<h3><label for="title">Recipe Title:</label></h3>
+<input type="text" name="title" value=""><br>
 
 <h3><label for="content">Recipe Instructions:</label></h3>
-<textarea name="content" style="width:600px; height:400px; align: left;"> <%= @recipe.content %> </textarea>
+<textarea name="content" style="width:600px; height:400px; align: left;"> </textarea>
 
+<h3>Select your recipe's category</h3>
 
-<h3>Select the categories for your recipe:</h3>
 <label for="breakfast">Breakfast</label>
-<input type="checkbox" id="breakfast" name="category" value="<%= @recipe.category %>">
+<input type="checkbox" id="breakfast" name="category" value="breakfast">
 
+<label for="main_dish">Main Dish</label>
+<input type="checkbox" id="main_dish" name="category" value="main_dish">
 
-<h3>How simple is your recipe?</h3>
-<label for="simple_review">1</label>
-<input type="radio" name="simple_review" value=1>
-<label for="simple_review">2</label>
-<input type="radio" name="simple_review" value=2>
-<label for="simple_review">3</label>
-<input type="radio" name="simple_review" value=3 checked>
-<label for="simple_review">4</label>
-<input type="radio" name="simple_review" value=4>
-<label for="simple_review">5</label>
-<input type="radio" name="simple_review" value=5><br><br>
+<label for="side_dish">Side Dish</label>
+<input type="checkbox" id="side_dish" name="category" value="side_dish">
 
+<label for="appetizer">Appetizer</label>
+<input type="checkbox" id="appetizer" name="category" value="appetizer">
+
+<label for="dessert">Dessert</label>
+<input type="checkbox" id="dessert" name="category" value="dessert">
+
+<h3>Submit an image (from url) to use for your recipe</h3>
+
+<h3><label for="pic_url">Picture URL:</label></h3>
+<input type="text" name="pic_url" value=""><br>
 <input type="submit" name="" value="Edit Entry">
 
 
