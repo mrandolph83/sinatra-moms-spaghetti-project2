@@ -1,0 +1,19 @@
+<h1>Main Dish Recipes</h1>
+
+
+
+<% @main_dish_array = @recipes.select { |recipe| recipe.category.start_with? "m"}%>
+
+<% @main_dish_sorted = @main_dish_array.sort {|a, b| a.title <=> b.title } %>
+    
+<div class ="top-nav">
+
+<% @main_dish_sorted.each do |recipe| %>
+    
+<a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto" style="margin:3px"><h4><%= recipe.title%></h4></a> 
+    <% end %>
+    
+    </div>
+   
+
+

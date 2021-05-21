@@ -1,0 +1,19 @@
+<h1>Dessert Recipes</h1>
+
+
+
+<% @dessert_array = @recipes.select { |recipe| recipe.category.start_with? "d"}%>
+
+<% @dessert_sorted = @dessert_array.sort {|a, b| a.title <=> b.title } %>
+    
+<div class ="top-nav">
+
+<% @dessert_sorted.each do |recipe| %>
+    
+<a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto" style="margin:3px"><h4><%= recipe.title%></h4></a> 
+    <% end %>
+    
+    </div>
+   
+
+

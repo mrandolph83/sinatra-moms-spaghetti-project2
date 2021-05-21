@@ -8,5 +8,6 @@ use Rack::MethodOverride
 
 run ApplicationController
 use RecipesController
+use RecipesSortedController
 use UsersController
 use ReviewsController

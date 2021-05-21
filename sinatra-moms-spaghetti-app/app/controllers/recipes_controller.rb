@@ -6,6 +6,11 @@ class RecipesController < ApplicationController
     erb :"/recipes/index.html"
   end
 
+  get "recipes/sorted/breakfast" do
+    @recipes = Recipe.all
+    erb :"/recipes/breakfast.html"
+  end
+
   # GET: /recipes/new
   get "/recipes/new" do
     erb :"/recipes/new.html"
