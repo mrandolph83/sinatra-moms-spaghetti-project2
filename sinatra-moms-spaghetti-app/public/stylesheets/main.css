@@ -15,14 +15,14 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue; 
+    background-color: #164e71; 
     color: #333;
-    font-family: Sans-Serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
+    background: #f8f8ed;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -32,16 +32,47 @@
     width: 85%;
   }
 
+  .main-logo {
+    border-bottom: 5px solid #164e71;
+    line-height: 20px;
 
+
+  }
+
+  .top-nav {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .setWidth {
+    flex-basis: 100px;
+    flex-grow: 1;
+  }
+  
+  .item {
+    width: 100px;
+    height: 100px;
+    /* margin: 5px; */
+    background-color: #FCF2EC;
+  }
+
+  .body-center {
+    text-align: center;
+  }
 
 
   h1 {
-    font-size: 36px;
-    line-height: 54px;
+    font-size: 27px;
+    color: #164e71;
+    border-bottom: 2px solid #727272;
+    line-height: 70px;
+    margin-bottom: 8px;
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #164e71;
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
@@ -54,6 +85,7 @@
 
   p {
     margin-bottom: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
   .main {

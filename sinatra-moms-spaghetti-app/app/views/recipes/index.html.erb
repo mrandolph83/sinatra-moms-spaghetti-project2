@@ -1,8 +1,11 @@
 <h1>REcipes! Add pics/grid?</h1>
-<p> <%@recipes.each do |recipe| %>
+<% @sorted_array = @recipes.sort {|a, b| a.title <=> b.title } %>
+    
+<p> <% @sorted_array.each do |recipe| %>
     <li><a href="/recipes/<%= recipe.id %>"><%= recipe.title%> </a> - <%=recipe.user.name%><li>
+    <% recipe_array << recipe %>
     <% end %>
+    
 
 </p>
-
 
