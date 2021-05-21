@@ -1,11 +1,14 @@
 <h1>REcipes! Add pics/grid?</h1>
-<% @sorted_array = @recipes.sort {|a, b| a.title <=> b.title } %>
+
+
+
+<% @breakfast_array = @recipes.select { |recipe| recipe.category.start_with? "b"}%>
+
+<% @breakfast_sorted = @breakfast_array.sort {|a, b| a.title <=> b.title } %>
     
-<p> <% @sorted_array.each do |recipe| %>
-    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.title%> </a> - <%=recipe.user.name%><li>
-    <% recipe_array << recipe %>
+<p> <% @breakfast_sorted.each do |recipe| %>
+    <a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto"><h4><%= recipe.title%></h4></a> 
     <% end %>
-    
+   
 
 </p>
-
