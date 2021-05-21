@@ -1,9 +1,0 @@
-.even-columns {
-  display: flex;
-  
-}
-
-.even-columns > * {
-  flex-basis: 100%;
-}
-

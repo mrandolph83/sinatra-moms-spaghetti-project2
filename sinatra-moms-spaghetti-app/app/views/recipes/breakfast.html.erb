@@ -8,10 +8,15 @@
     
 <div class ="top-nav">
 
+
 <% @breakfast_sorted.each do |recipe| %>
-    
 <a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto" style="margin:3px"><h4><%= recipe.title%></h4></a> 
-    <% end %>
+simple: <%= simple_review(recipe.id) %>
+<% end %>
+
+
+
+
     
     </div>
    

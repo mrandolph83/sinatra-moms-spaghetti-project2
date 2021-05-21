@@ -35,6 +35,19 @@ class ApplicationController < Sinatra::Base
         redirect '/' 
       end
     end
+
+    def simple_review(id)
+    simple_array = [] 
+
+    Recipe.all[id.to_i].reviews.each do |review|
+    simple_array << review.simple_review
+    end
+    
+    simple_average = simple_array.sum(0.0)/simple_array.count
+    simple_average 
+    end 
+
+
   end
 
 end

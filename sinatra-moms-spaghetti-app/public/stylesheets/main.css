@@ -52,6 +52,7 @@
     height: 100%;
     flex-wrap: wrap;
   }
+
   
   .setWidth {
     flex-basis: 100px;
@@ -67,6 +68,11 @@
 
   .body-center {
     text-align: center;
+  }
+
+  a {
+    display: block;
+
   }
 
 
