@@ -2,7 +2,7 @@
 
 
 
-<% @main_dish_array = @recipes.select { |recipe| recipe.category.start_with? "m"}%>
+<% @main_dish_array = @recipes.select { |recipe| recipe.category == "main_dish"}%>
 
 <% @main_dish_sorted = @main_dish_array.sort {|a, b| a.title <=> b.title } %>
     
@@ -10,7 +10,10 @@
 
 <% @main_dish_sorted.each do |recipe| %>
     
-<a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto" style="margin:3px"><h4><%= recipe.title%></h4></a> 
+<a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto" style="margin:3px"><h4><%= recipe.title%></h4>
+<h5>simple: <%= simple_review(recipe.id).to_f.round(1) %> </h5>
+<h5>healthy: <%= healthy_review(recipe.id).to_f.round(1) %> </h5>
+<h5>tasty: <%= tasty_review(recipe.id).to_f.round(1) %> </h5></a>
     <% end %>
     
     </div>

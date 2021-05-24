@@ -12,28 +12,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
-    <link rel="stylesheet" href="/stylesheets/flexbox.css" />
   </head>
   <body>
 
-    <div class="nav">
-    <% if logged_in? %> 
-    <a href="/logout">Logout</a>
-    <a href="/recipes">Recipes</a>
-    <a href="/recipes/new">Post a Recipe</a>
-    <a href="/users/<%=current_user.id%>">My Recipes</a>
-    <% end %>
-    </div>
+   
 
     <% if flash[:message] %>
   <h4> <%= flash[:message] %> </h4>
   <% end %>
   <% if flash[:errors] %>
   <h4 style="color: red;"> <%= flash[:errors] %> </h4>
-  <% end %>
+  <% end %> 
  
     <div class="wrapper">
-    <div class="main-logo"><img src="/images/moms_spaghetti_logo.png"></div>
+    
+ 
+    
+    <div class="main-logo"><a href="/recipes"><img src="/images/moms_spaghetti_logo.png"></a></div>
     <div class="top-nav">
   
     <div class="item setWidth"><a href="/recipes_sorted/breakfast"><img src="/images/nav1_breakfast.png"></a></div>
@@ -42,6 +37,21 @@
       <div class="item setWidth"><a href="/recipes_sorted/appetizer"><img src="/images/nav4_appetizer.png"></a></div>
       <div class="item setWidth"><a href="/recipes_sorted/dessert"><img src="/images/nav5_dessert.png"></a></div>
     </div>
+    <% if logged_in? %> 
+    <br>
+    <br>
+    
+    <a href="/users/<%=current_user.id%>">My Recipes</a>
+    <a href="/recipes/new">Post a Recipe</a>
+    <a href="/logout">Logout</a><br>
+
+    <% else %>
+    <br>
+    <br>
+    <a href="/login">Login</a>
+    <a href="/signup">Sign up</a><br>
+
+    <% end %>
  
     
   
@@ -49,7 +59,7 @@
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2021 <strong>SinatraMomsSpaghettiApp</strong></small>
+        <small>&copy; 2021 <strong>Moms Spaghetti</strong></small>
       </footer>
     </div>
 

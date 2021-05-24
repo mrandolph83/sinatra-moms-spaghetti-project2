@@ -42,13 +42,6 @@ class RecipesController < ApplicationController
     erb :"/recipes/show.html"
   end
 
-  post "/recipes/:id" do   
-    @review = Review.create(simple_review: params[:simple_review], 
-    healthy_review: params[:healthy_review], comments: params[:comments], tasty_review: params[:tasty_review], 
-    user_id: params[:user_id], recipe_id: params[:recipe_id])
-     redirect "/users/#{@review.user_id}"
-   end
-
   # GET: Edit Recipe to edit.erb, so you can render an edit form with patch
   get "/recipes/:id/edit" do 
      @recipe = Recipe.find(params[:id])
@@ -69,9 +62,7 @@ class RecipesController < ApplicationController
      @recipe = Recipe.find(params[:id])
     if logged_in?
       if @recipe.user == current_user && params[:content] != ""
-  # Find the recipe
-  # Update the recipe
-  # REdirect to show page
+  
     @recipe.update(title: params[:title], content: params[:content], category: params[:category], 
     pic_url: params[:pic_url], user_id: current_user.id)
     redirect "/recipes/#{@recipe.id}"
@@ -84,16 +75,16 @@ class RecipesController < ApplicationController
   end
 end
 
-get "/recipes/:id/destroy" do
+get "/recipes/delete/:id" do
 
   @recipe = Recipe.find(params[:id])
   # binding.pry
-  erb :"/recipes/destroy.html"
+  erb :"/recipes/delete.html"
 end
 
 
   # DELETE: /recipes/5/delete
-  delete "/recipes/:id/destroy" do
+  delete "/recipes/delete/:id" do
     @recipe = Recipe.find(params[:id])
  
     "Hello world"

@@ -4,10 +4,10 @@
 <input type="hidden" name="_method" value="patch">
 
 <h3><label for="title">Recipe Title:</label></h3>
-<input type="text" name="title" value=""><br>
+<input type="text" name="title" value ="<%= @recipe.title %>"><br>
 
 <h3><label for="content">Recipe Instructions:</label></h3>
-<textarea name="content" style="width:600px; height:400px; align: left;"> </textarea>
+<textarea name="content" style="width:600px; height:400px; align: left;"><%= @recipe.content %> </textarea>
 
 <h3>Select your recipe's category</h3>
 
@@ -29,7 +29,7 @@
 <h3>Submit an image (from url) to use for your recipe</h3>
 
 <h3><label for="pic_url">Picture URL:</label></h3>
-<input type="text" name="pic_url" value=""><br>
+<input type="text" name="pic_url" value ="<%= @recipe.pic_url %>"><br>
 <input type="submit" name="" value="Edit Entry">
 
 

@@ -1,1 +1,54 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+
+
+<% @recipe = Recipe.all.find{|recipes| recipes.id == params[:id].to_i}%>
+
+
+<h1>Submit your review for <%=@recipe.title%></h1>
+<img src=<%=@recipe.pic_url%> width="185px" height="auto">
+
+<form class="" action="/reviews/:id" method="post">
+
+
+<h4>How simple?</h4>
+
+<input type="hidden" name="user_id" value=<%=current_user.id%>>
+<input type="hidden" name="recipe_id" value=<%=@recipe.id%>>
+<label for="simple_review">1</label>
+<input type="radio" name="simple_review" value=1>
+<label for="simple_review">2</label>
+<input type="radio" name="simple_review" value=2>
+<label for="simple_review">3</label>
+<input type="radio" name="simple_review" value=3 checked>
+<label for="simple_review">4</label>
+<input type="radio" name="simple_review" value=4>
+<label for="simple_review">5</label>
+<input type="radio" name="simple_review" value=5><br>
+
+<h4>How healthy?</h4>
+<label for="healthy_review">1</label>
+<input type="radio" name="healthy_review" value=1>
+<label for="healthy_review">2</label>
+<input type="radio" name="healthy_review" value=2>
+<label for="healthy_review">3</label>
+<input type="radio" name="healthy_review" value=3 checked>
+<label for="healthy_review">4</label>
+<input type="radio" name="healthy_review" value=4>
+<label for="healthy_review">5</label>
+<input type="radio" name="healthy_review" value=5><br>
+
+<h4>How tasty?</h4>
+<label for="tasty_review">1</label>
+<input type="radio" name="tasty_review" value=1>
+<label for="tasty_review">2</label>
+<input type="radio" name="tasty_review" value=2>
+<label for="tasty_review">3</label>
+<input type="radio" name="tasty_review" value=3 checked>
+<label for="tasty_review">4</label>
+<input type="radio" name="tasty_review" value=4>
+<label for="tasty_review">5</label>
+<input type="radio" name="tasty_review" value=5><br><br>
+
+<h4><label for="comments">Comments:</label></h4>
+<textarea name="comments" style="width:600px; height:150px; align: left;"> </textarea><br><br>
+
+<input type="submit" name="" value="Submit Review">

@@ -1,38 +1,31 @@
 class ReviewsController < ApplicationController
 
-  # GET: /reviews
-  get "/reviews" do
-    erb :"/reviews/index.html"
-  end
 
-  # GET: /reviews/new
-  get "/reviews/new" do
-    binding.pry
-    erb :"/reviews/new.html"
-  end
+
 
   # POST: /reviews
   post "/reviews" do
-    redirect "/reviews"
+    
   end
 
   # GET: /reviews/5
   get "/reviews/:id" do
+  
     erb :"/reviews/show.html"
   end
 
-  # GET: /reviews/5/edit
-  get "/reviews/:id/edit" do
-    erb :"/reviews/edit.html"
-  end
 
-  # PATCH: /reviews/5
-  patch "/reviews/:id" do
-    redirect "/reviews/:id"
-  end
+ post "/reviews/:id" do
+  @review = Review.create(simple_review: params[:simple_review], 
+    healthy_review: params[:healthy_review], comments: params[:comments], tasty_review: params[:tasty_review], 
+    user_id: params[:user_id], recipe_id: params[:recipe_id])
+     redirect "/recipes/#{@review.recipe_id}"
+end
+
+ 
 
   # DELETE: /reviews/5/delete
   delete "/reviews/:id/delete" do
-    redirect "/reviews"
+   
   end
 end

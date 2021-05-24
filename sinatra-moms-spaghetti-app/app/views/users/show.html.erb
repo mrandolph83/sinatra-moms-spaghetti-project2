@@ -1,10 +1,15 @@
 <h1>Welcome <%= @user.name %>  </h1>
+
+<form class="" action="/users/<%= @user.id %>/delete" method="post">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" name="" value="Delete User">
+
 <h2>My Recipes: </h2>
 <p> <%@user.recipes.each do |recipe| %>
-    <img src=<%= recipe.pic_url %> width="auto" height="150px">
     <h3><a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></h3>
     <a href="/recipes/<%= recipe.id %>/edit">edit</a> 
-    <a href="/recipes/<%= recipe.id %>/destroy"> delete </a> <br><br>
+    <a href="/recipes/delete/<%= recipe.id %>"> delete </a> <br><br>
+   
     <% end %>
 </p>
     
