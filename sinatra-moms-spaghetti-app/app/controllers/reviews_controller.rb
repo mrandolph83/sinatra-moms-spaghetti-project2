@@ -1,6 +1,20 @@
 class ReviewsController < ApplicationController
 
 
+
+  get "/reviews/new/:id" do
+    @review = Review.create(simple_review: "", healthy_review: "", comments: "", tasty_review: "", user_id: current_user.id, recipe_id: params[:id])
+  if logged_in?
+    if @review.user_id == current_user.id
+    erb :"/reviews/edit.html"
+    else
+      redirect "recipes/#{@review.recipe_id}"
+    end
+  else
+    redirect "/"
+    end
+  end
+  
   get "/reviews/:id/edit" do
     @review = Review.find(params[:id])
   if logged_in?

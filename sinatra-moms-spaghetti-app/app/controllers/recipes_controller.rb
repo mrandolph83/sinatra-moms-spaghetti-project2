@@ -62,7 +62,7 @@ class RecipesController < ApplicationController
     @recipe.update(title: params[:title], content: params[:content], category: params[:category], 
     pic_url: params[:pic_url], user_id: current_user.id)
     redirect "/recipes/#{@recipe.id}"
-      else 
+      else  
         redirect "users/#{current_user.id}"
   end
   else

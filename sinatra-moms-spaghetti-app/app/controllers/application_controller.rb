@@ -38,7 +38,6 @@ class ApplicationController < Sinatra::Base
 
     def simple_review(id)
     simple_array = [] 
-      binding.pry
     @recipe.reviews.each do |review|
       
     simple_array << review.simple_review
