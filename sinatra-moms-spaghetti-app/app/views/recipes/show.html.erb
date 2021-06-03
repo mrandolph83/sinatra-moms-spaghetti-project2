@@ -1,12 +1,20 @@
 
 
+
 <h1><%= @recipe.title %>  </h1>
 <img src=<%= @recipe.pic_url %> alt="Recipe Image" width="auto" height="250px">
 <p> by <em> <%= @recipe.user.name %> </em> </p>
+
+<% if @recipe.reviews.all.empty? %>
+
+<h3><em> This recipe has no reviews yet! </em></h3>
+<%else%>
 <h4>simple review: <%= simple_review(@recipe.id).to_f.round(1) %> </h4>
 <h4>healthy review: <%= healthy_review(@recipe.id).to_f.round(1) %> </h4>
 <h4>tasty review: <%= tasty_review(@recipe.id).to_f.round(1) %> </h4><br>
+<% end %>
 <p> <%= @recipe.content %> </p>
+
 
 <% if logged_in? %>
 <h2><a href="/reviews/<%=@recipe.id%>">Click here</a> to review this recipe </h2>
@@ -16,7 +24,10 @@
 <%end%>
 
 
+<% if @recipe.reviews.all.empty? %>
 
+<h3><em>This recipe has no reviews yet!</em></h3>
+<%else%>
 
 <p> <%@recipe.reviews.each do |review| %>
     <h4><%= review.user.username%></h4>
@@ -24,6 +35,7 @@
     <%= review.comments%>  <br>
     <% end %>
 </p>
+<%end%>
 
 
 

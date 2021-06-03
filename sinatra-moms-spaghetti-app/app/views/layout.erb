@@ -37,10 +37,12 @@
       <div class="item setWidth"><a href="/recipes_sorted/appetizer"><img src="/images/nav4_appetizer.png"></a></div>
       <div class="item setWidth"><a href="/recipes_sorted/dessert"><img src="/images/nav5_dessert.png"></a></div>
     </div>
+
+
     <% if logged_in? %> 
     <br>
     <br>
-    
+  
     <a href="/users/<%=current_user.id%>">My Recipes</a>
     <a href="/recipes/new">Post a Recipe</a>
     <a href="/logout">Logout</a><br>

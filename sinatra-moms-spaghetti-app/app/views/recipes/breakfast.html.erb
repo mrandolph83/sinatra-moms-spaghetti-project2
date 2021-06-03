@@ -9,15 +9,18 @@
 <div class ="top-nav">
 
 <% @breakfast_sorted.each do |recipe| %>
-<a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto" style="margin:3px"><h4><%= recipe.title%></h4> 
-<h5>simple: <%= simple_review(recipe.id).to_f.round(1) %> </h5>
-<h5>healthy: <%= healthy_review(recipe.id).to_f.round(1) %> </h5>
-<h5>tasty: <%= tasty_review(recipe.id).to_f.round(1) %> </h5></a>
-<% end %>
-
-
-
-
+    <a href="/recipes/<%= recipe.id %>"><img src=<%= recipe.pic_url %> width="185px" height="auto" style="margin:3px"><h4><%= recipe.title%></h4> 
+    
+    <% if recipe.reviews.all.empty? %>
+    <h4><em> No reviews</em></h4>
+    
+    <%else%> 
+   
+    <h5>simple: <%= simple_review_display(recipe.id).to_f.round(1) %> </h5>
+    <h5>healthy: <%= healthy_review_display(recipe.id).to_f.round(1) %> </h5>
+    <h5>tasty: <%= tasty_review_display(recipe.id).to_f.round(1) %> </h5></a>
+    <% end %>
+    <% end %>
     
     </div>
    

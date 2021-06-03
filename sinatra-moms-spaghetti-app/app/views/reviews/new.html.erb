@@ -1,9 +1,13 @@
-<h2>Submit your review below</h2>
+<h1>Submit your review for <%=@recipe.title%></h1>
+<img src=<%=@recipe.pic_url%> width="185px" height="auto">
+
 <form class="" action="/reviews" method="post">
-<%binding.pry%>
-<h4>How simple?</h4>
+
 <input type="hidden" name="user_id" value=<%=current_user.id%>>
-<input type="hidden" name="recipe_id" value=<%=params.values.join.to_i%>>
+<input type="hidden" name="recipe_id" value=<%=@recipe.id%>>
+<h4>How simple?</h4>
+
+
 <label for="simple_review">1</label>
 <input type="radio" name="simple_review" value=1>
 <label for="simple_review">2</label>
@@ -43,4 +47,3 @@
 <textarea name="comments" style="width:600px; height:150px; align: left;"> </textarea><br><br>
 
 <input type="submit" name="" value="Submit Review">
-

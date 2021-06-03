@@ -13,22 +13,18 @@ class RecipesController < ApplicationController
 
   # POST: /recipes
   post "/recipes" do
-    # I only want to create if it has content
-    # I only want to save if it has content
-    # I also only want to create a recipe if a user is logged in
     if !logged_in?
       flash[:errors] = "You must login or sign up to perform this action."
       redirect '/'
     end
 
     if params[:content] != ""
-      # create a new recipe. also create a new category class, maybe
-      # gorup it with rating in a classify class
       @recipe = Recipe.create(title: params[:title], content: params[:content], category: params[:category], 
       pic_url: params[:pic_url], user_id: current_user.id)
-
-      redirect "recipes/#{@recipe.id}"
-      # Recirects destroy 
+      @review = Review.create(simple_review: "", healthy_review: "", comments: "", tasty_review: "", user_id: current_user.id, recipe_id: @recipe.id)
+      flash[:message] = "Congratulations, you have sucessfully posted your #{@recipe.title} recipe."
+      redirect "/reviews/#{@review.id}/edit"
+  
     else
       flash[:message] = "Please enter your recipe information below."
       redirect '/recipes/new'

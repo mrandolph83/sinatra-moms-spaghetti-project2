@@ -1,18 +1,19 @@
 
 
-<% @recipe = Recipe.all.find{|recipes| recipes.id == params[:id].to_i}%>
 
 
-<h1>Submit your review for <%=@recipe.title%></h1>
-<img src=<%=@recipe.pic_url%> width="185px" height="auto">
 
-<form class="" action="/reviews/:id" method="post">
+<h1>Submit your review for <%=@review.recipe.title%></h1>
+<img src=<%=@review.recipe.pic_url%> width="185px" height="auto">
 
-
-<h4>How simple?</h4>
+<form class="" action="/reviews/<%= @review.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
 
 <input type="hidden" name="user_id" value=<%=current_user.id%>>
-<input type="hidden" name="recipe_id" value=<%=@recipe.id%>>
+<input type="hidden" name="recipe_id" value=<%=@review.recipe_id%>>
+<h4>How simple?</h4>
+
+
 <label for="simple_review">1</label>
 <input type="radio" name="simple_review" value=1>
 <label for="simple_review">2</label>
